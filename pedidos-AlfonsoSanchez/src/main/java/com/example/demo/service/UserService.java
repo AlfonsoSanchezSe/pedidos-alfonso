@@ -6,11 +6,23 @@ import org.springframework.stereotype.Service;
 
 import com.example.demo.dto.User;
 
+/**
+ * Clase utilizada como servicio para los usuarios
+ * @author Alfonso
+ * @version 1.0
+ * @see User
+ */
 @Service
 public class UserService {
 
+	
+	/** Variable de clase que contiene la lista de los usuarios */
 	private static ArrayList<User> users = new ArrayList<>();
 
+	
+	/** 
+	 * Constructor predeterminado vacio
+	 */
 	public UserService() {
 
 		
@@ -18,6 +30,13 @@ public class UserService {
 
 	}
 
+	
+	
+	/**
+	 * Método que busca un usuario en la lista por su ID
+	 * @param id ID del usuario buscado
+	 * @return Usuario encontrado o <code>NULL</code>
+	 */
 	public User buscarUser(Long id) {
 
 		for (User u : users) {
@@ -33,6 +52,11 @@ public class UserService {
 	}
 	
 	
+	/**
+	 * Método que recibe un usuario y lo añade a la lista de usuarios
+	 * @param u Usuario a añadir
+	 * @return Usuario añadido 
+	 */
 	public User crearUser(User u) {
 		
 		
@@ -42,6 +66,13 @@ public class UserService {
 	}
 	
 	
+	
+	/**
+	 * Método que elimina un usuario de la lista
+	 * @param id ID del usuario a eliminar
+	 * @return <code>TRUE</coode> en caso de eliminar el usuario correctamente,
+	 * <code>FALSE</code> en caso contrario.
+	 */
 	public boolean eliminarUser(Long id) {
 		
 		User u = buscarUser(id);
@@ -50,6 +81,11 @@ public class UserService {
 		
 	}
 	
+	
+	/**
+	 * Métido que muestra todos los usuarios de la lista
+	 * @return Lista de usuarios
+	 */
 	public ArrayList<User> verUsers() {
 
 		return users;
